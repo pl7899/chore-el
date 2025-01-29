@@ -156,3 +156,8 @@ table {
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
   }
+
+  .dateText{
+	font-size: 24px;
+	color: pink;
+  }
