@@ -4,7 +4,7 @@
 <head>
     <link id="mainstyle" rel="stylesheet" type="text/css" href="css/chore-el.css"> </link>
     <title>
-        webDo Interface version with rev
+       chore-el
     </title>
 </head>
 <body>
