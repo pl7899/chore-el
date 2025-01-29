@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/petel/public_html/chore-el/
+    - /bin/cp -R * $DEPLOYPATH
