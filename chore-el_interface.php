@@ -11,10 +11,13 @@ if ($_POST['action'] == "retrieveProjectList")
 {
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	echo "<span style=\"color:var(--strong_text);\">// ----- Projects Currently Tracked </span><br>";
-	while ($row = mysqli_fetch_array($rows)) {
+	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Controls</th> </tr> ";
+		while ($row = mysqli_fetch_array($rows)) {
 		{
-			echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";			
+			//echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";
+			echo "<tr> <td>" .  $row['name'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
+		echo "</table> ";
 	} 
 }
 elseif ($_POST['action'] == "exportTasksByWeekNumber")
