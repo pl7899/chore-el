@@ -9,7 +9,7 @@
 </head>
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"> </script>
-<script src="chorer-el_shim.js"></script>
+<script src="chore-el_shim.js"></script>
 <script>
     var input = document;
     var todayDate = new Date();
