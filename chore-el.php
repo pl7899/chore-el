@@ -32,90 +32,10 @@
 			</pre>
 -->
 		</div>
-		<div class="rowLongTerm center">
-			<table>
-				<tr>
-				<th>Chore</th>
-				<th>Frequency</th>
-				<th>Last Completed</th>
-				<th>Control</th>
-				</tr>
-				<tr>
-				<td>Change Bed Clothes</td>
-				<td>Monthly</td>
-				<td>Jan-25-2025</td>
-				<td>
-					<button class="button">Edit This Chore</button>
-					<button class="button">Completed Today</button>		
-				</td>
-				</tr>
-				<tr>
-				<td>Wash Bath Towels</td>
-				<td>Monthly</td>
-				<td>Jan-25-2025</td>
-				<td>
-					<button class="button">Edit This Chore</button>
-					<button class="button">Completed Today</button>		
-				</td>
-				</tr>
-				<tr>
-				<td>Clean Kitchen Floor</td>
-				<td>Quarterly</td>
-				<td>Jun-01-2024</td>
-				<td>
-					<button class="button">Edit This Chore</button>
-					<button class="button">Completed Today</button>		
-				</td>
-				</tr>
-				<tr>
-				<td>Powerwash House</td>
-				<td>Every 3 years</td>
-				<td>Jun-01-2022</td>
-				<td>
-					<button class="button">Edit This Chore</button>
-					<button class="button">Completed Today</button>		
-				</td>
-				</tr>
-			</table>		
+		<div class="rowLongTerm center" id="choreListDump">
+
 		</div>
 		</br>
-		<div class="rowNearTerm center">
-			<table>
-				<tr>
-					<td>Clean Half Bath</td>
-					<td>Weekly</td>
-					<td>Jand-25-2025</td>
-					<td>
-						<button class="button">Edit This Chore</button>
-						<button class="button">Completed Today</button>		
-					</td>
-				</tr>
-				<tr>
-					<td>Clean Master Bath</td>
-					<td>Weekly</td>
-					<td>Jul-25-2025</td>
-					<td>
-						<button class="button">Edit This Chore</button>
-						<button class="button">Completed Today</button>		
-					</td>
-				</tr>
-				<tr>
-					<td>Clean Second Bath</td>
-					<td>Weekly</td>
-					<td>Jul-25-2025</td>
-					<td>
-						<button class="image-btn">
-							<img src="assets/pencil.png" alt="Button Image"  width="32" height="32">
-						</button>
-						<label class="container">
-							<input type="checkbox" checked="checked">
-							<span class="checkmark"></span>
-						  </label>
-
-					</td>
-				</tr>
-			</table>	
-		</div>
 	</div>
 	<div class="rightColumn">
 		<img src="assets/logo.png" alt="logo" width="384" height="256" >
@@ -131,10 +51,6 @@
 		<div id="auto_load_time" class="dateText">
 			<p>location 1</p>
       	</div>
-		<hr>
-		<div id="choreListDump">
-		chore list area
-		</div>  
 	</div>
 	</div>
 
