@@ -16,7 +16,6 @@
 	fullYear = todayDate.getFullYear();
 	currentMonth = todayDate.getMonth()+1;
 	currentDateNumber = todayDate.getDate();
-    var currentWeek = week(fullYear, todayDate.getMonth()+1, (todayDate.getDate() - todayDate.getDay()));
 </script>
 
 	<div class="wholePage">
@@ -167,7 +166,7 @@
             var d = new Date();
             var minutesString = d.getMinutes();
             minutesString = minutesString<10 ? "0" + minutesString : minutesString;
-            var timestring = "<span class=dateFormat>" + d.toDateString() + "</span>";
+            var timeString = "<span class=dateFormat>" + d.toDateString() + "</span>";
             timeString = timeString + "<span class=timeFormat>" + d.getHours() + ":" + minutesString + "</span> <br>";
             document.getElementById("auto_load_time").innerHTML = timeString;
         }
