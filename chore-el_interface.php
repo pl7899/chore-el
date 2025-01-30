@@ -9,21 +9,11 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 
 if ($_POST['action'] == "retrieveProjectList")
 {
-	$rows = mysqli_query($db, "SELECT * FROM `todoProjects` WHERE `hidden`=0 ORDER BY `rank` ASC");
+	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	echo "<span style=\"color:var(--strong_text);\">// ----- Projects Currently Tracked </span><br>";
 	while ($row = mysqli_fetch_array($rows)) {
-		if($row['projName'] == "AllTasks")
 		{
-			echo "<button onclick=\"handleProjectSelection(`" . $row['projName'] . "`)\" class=\"button\">" . "Mains" . "</button>";		
-		}
-		else if ($row['projName'] == "break")
-		{
-			echo "<br>";
-		}
-		
-		else
-		{
-			echo "<button onclick=\"handleProjectSelection(`" . $row['projName'] . "`)\" class=\"button\">" . $row['projName'] . "</button>";			
+			echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";			
 		}
 	} 
 }

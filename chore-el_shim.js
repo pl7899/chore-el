@@ -29,9 +29,9 @@ function disableNotesInput() {
 }
 
 function retrieveProjectList() {
-    $.post("webdo_interface.php", { action: "retrieveProjectList" },
+    $.post("chore-el_interface.php", { action: "retrieveProjectList" },
         function(data) {
-    	 $('#project_list_buttons').html(data);
+    	 $('#choreListDump').html(data);
         });
 }
    

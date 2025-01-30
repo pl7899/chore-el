@@ -151,6 +151,9 @@
 		  </label>
 		  
 	</div>
+	<div id="choreListDump">
+		chore list area
+	</div>
 	</div>
 
 <script>
