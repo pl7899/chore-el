@@ -164,8 +164,8 @@
             var d = new Date();
             var minutesString = d.getMinutes();
             minutesString = minutesString<10 ? "0" + minutesString : minutesString;
-            var timeString = "<span class=timeFormat>" + d.getHours() + ":" + minutesString + "</span> <br>";
-            timeString = timeString + "<span class=dateFormat>" + d.toDateString() + "</span>";
+            var timestring = "<span class=dateFormat>" + d.toDateString() + "</span>";
+            timeString = timeString + "<span class=timeFormat>" + d.getHours() + ":" + minutesString + "</span> <br>";
             document.getElementById("auto_load_time").innerHTML = timeString;
         }
 
