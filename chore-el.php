@@ -132,26 +132,9 @@
 			<p>location 1</p>
       	</div>
 		<hr>
-		<label class="container">One
-			<input type="checkbox" checked="checked">
-			<span class="checkmark"></span>
-		  </label>
-		  <label class="container">Two
-			<input type="checkbox">
-			<span class="checkmark"></span>
-		  </label>
-		  <label class="container">Three
-			<input type="checkbox">
-			<span class="checkmark"></span>
-		  </label>
-		  <label class="container">Four
-			<input type="checkbox">
-			<span class="checkmark"></span>
-		  </label>
-		  
-	</div>
-	<div id="choreListDump">
+		<div id="choreListDump">
 		chore list area
+		</div>  
 	</div>
 	</div>
 
