@@ -17,8 +17,8 @@ if ($_POST['action'] == "retrieveProjectList")
 			//echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";
 			echo "<tr> <td>" .  $row['name'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
-		echo "</table> ";
 	} 
+	echo "</table> ";
 }
 elseif ($_POST['action'] == "exportTasksByWeekNumber")
 {
