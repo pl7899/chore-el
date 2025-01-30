@@ -10,7 +10,6 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 if ($_POST['action'] == "retrieveProjectList")
 {
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	echo "<span style=\"color:var(--strong_text);\">// ----- Projects Currently Tracked </span><br>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Controls</th> </tr> ";
 		while ($row = mysqli_fetch_array($rows)) {
 		{
