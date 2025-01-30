@@ -46,7 +46,6 @@
 			<button class="button">Show This Month</button>
 			<button class="button">Randomizer!</button>
 			<button class="button">Admin</button>
-			<button class="open-button" onclick="openForm()">Open Form</button>
 
 		</div>
 		<hr>
