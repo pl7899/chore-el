@@ -4,6 +4,31 @@ var lastAcceptedTheme = 0;
 var currentShownTheme = 0;
 var themes = ["b_orig_th.css", "gb_th.css", "76_th.css", "newspaper_th.css", "limitedclrs_th.css", "c64_th.css", "sublime.css"];
 
+function retrieveChoreList() {
+    $.post("chore-el_interface.php", { action: "retrieveChoreList" },
+        function(data) {
+    	 $('#choreListDump').html(data);
+        });
+}
+
+function createNewChore() {
+    var project = document.getElementById("genericInput").value;
+    if (project.length > 0)
+    {
+		document.getElementById('genericInput').value = '';
+	    $.post("webdo_interface.php", { project: project, action: "addProject" },
+	        function(data) {
+		        // if the post is successful update the displayed project tasks
+				handleProjectSelection(project);
+				retrieveProjectList();
+				disableGenericInput();
+   			});
+   	}
+}
+
+
+
+
 function setupGenericInput(displayString, inputFieldString) {
 	$('#section_2').html("<p>" + displayString + "<input style=\"width: 320px;\" name=\"task\" id=\"genericInput\" type=\"text\" value=\"" + inputFieldString + "\"/> </p>");
 	document.getElementById("genericInput").focus();
@@ -28,13 +53,6 @@ function disableNotesInput() {
 	document.getElementById('notesInput').disabled = true;
 }
 
-function retrieveProjectList() {
-    $.post("chore-el_interface.php", { action: "retrieveProjectList" },
-        function(data) {
-    	 $('#choreListDump').html(data);
-        });
-}
-   
 function retrieveTaskForUpdate(taskID, activeProject) {
     $.post("webdo_interface.php", { action: "retrieveTaskForUpdateDisplay", project:  activeProject, taskID: taskID },
         function(data) {
@@ -301,20 +319,6 @@ function createNewTask(lastProjectSetActive) {
 	   });
 }
 
-function createNewProject() {
-    var project = document.getElementById("genericInput").value;
-    if (project.length > 0)
-    {
-		document.getElementById('genericInput').value = '';
-	    $.post("webdo_interface.php", { project: project, action: "addProject" },
-	        function(data) {
-		        // if the post is successful update the displayed project tasks
-				handleProjectSelection(project);
-				retrieveProjectList();
-				disableGenericInput();
-   			});
-   	}
-}
 
 function setOptions(newOptions) {
     $.post("webdo_interface.php", { options: newOptions, action: "setOptions" },

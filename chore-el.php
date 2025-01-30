@@ -41,11 +41,13 @@
 		<img src="assets/logo.png" alt="logo" width="384" height="256" >
 		<hr>
 		<div class="rowInfoControls">
-			<button class="button">Add Chore</button>
+			<button class="open-button" onclick="openForm()">Add Chore</button>
 			<button class="button">Find A Chore</button>
 			<button class="button">Show This Month</button>
 			<button class="button">Randomizer!</button>
 			<button class="button">Admin</button>
+			<button class="open-button" onclick="openForm()">Open Form</button>
+
 		</div>
 		<hr>
 		<div id="auto_load_time" class="dateText">
@@ -54,23 +56,46 @@
 	</div>
 	</div>
 
+	<div class="form-popup" id="myForm">
+		<form action="/action_page.php" class="form-container">
+			<h1>Chore Name</h1>
+
+			<label for="name"><b>name</b></label>
+			<input type="text" placeholder="Enter Chore" name="choreName" required>
+
+			<label for="Frequency"><b>Frequency</b></label>
+			<input type="text" placeholder="Enter Frequency" name="choreFreq" required>
+
+			<button type="submit" class="btn">Login</button>
+			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	</div>
+
 <script>
         $(document).ready(function() {
 	        auto_load_date();
 			setInterval(auto_load_date, 23000);
-            retrieveProjectList();
+            retrieveChoreList();
         });
 		
         function auto_load_date() {
             var d = new Date();
             var minutesString = d.getMinutes();
             minutesString = minutesString<10 ? "0" + minutesString : minutesString;
-            var timeString = "<span class=dateFormat>" + d.toDateString() + "</span>";
-            timeString = timeString + "<span class=timeFormat>" + d.getHours() + ":" + minutesString + "</span> <br>";
+            var timeString = "<span class=dateFormat>" + d.toDateString() + " </span>";
+            timeString = timeString + "<span class=timeFormat> " + d.getHours() + ":" + minutesString + "</span> <br>";
             document.getElementById("auto_load_time").innerHTML = timeString;
         }
 
-    </script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>

@@ -7,7 +7,7 @@ $db = db_connect();
 $queryString = "SELECT `id`, `taskDescription`, `dateOpened`, DATE_FORMAT(`targetDate`, \"%b-%d\"), DAYNAME(`targetDate`), DATEDIFF(`targetDate`, NOW()), DATE_ADD(`targetDate`, INTERVAL 1 DAY) FROM `todoActions` WHERE `id`>\"200\"";
 $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targetDate`, NOW()), DAYNAME(`targetDate`) FROM `todoActions` WHERE `isOpen`=\"1\" AND DATEDIFF(`targetDate`, NOW()) < 0";
 
-if ($_POST['action'] == "retrieveProjectList")
+if ($_POST['action'] == "retrieveChoreList")
 {
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Controls</th> </tr> ";
@@ -18,6 +18,19 @@ if ($_POST['action'] == "retrieveProjectList")
 		}
 	} 
 	echo "</table> ";
+}
+else if ($_POST['action'] == "addTask")
+{
+	$task = $_POST['task'];
+	$task = mysqli_real_escape_string($db, $task);
+
+	$priority = $_POST['priority'];
+	$project = $_POST['project'];
+	if ($task != NULL) {
+		$sql = "INSERT INTO todoActions (taskDescription, priority, project, isOpen)
+            VALUES ('$task', '$priority', '$project', 1)";
+		mysqli_query($db, $sql);
+	}
 }
 elseif ($_POST['action'] == "exportTasksByWeekNumber")
 {
@@ -32,19 +45,6 @@ elseif ($_POST['action'] == "findTasksByString")
 	$rows = mysqli_query($db, "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targetDate`, NOW()), DAYNAME(`targetDate`)  FROM `todoActions` WHERE `taskDescription` LIKE '%" . $_POST['searchString'] . "%' ORDER BY `isOpen` DESC, `priority`");
 	echo "<p><span style=\"color:var(--strong_text);\">// ----- Tasks Resulting From a Search For " . $_POST['searchString'] . " </span></p>";
 	printTaskTable($rows, $db);
-}
-else if ($_POST['action'] == "addTask")
-{
-	$task = $_POST['task'];
-	$task = mysqli_real_escape_string($db, $task);
-
-	$priority = $_POST['priority'];
-	$project = $_POST['project'];
-	if ($task != NULL) {
-		$sql = "INSERT INTO todoActions (taskDescription, priority, project, isOpen)
-            VALUES ('$task', '$priority', '$project', 1)";
-		mysqli_query($db, $sql);
-	}
 }
 else if ($_POST['action'] == "deleteTaskByNumber")
 {
