@@ -56,7 +56,7 @@
 	</div>
 
 	<div class="form-popup" id="myForm">
-		<form action="/action_page.php" class="form-container">
+		<form action="/add_chore.php" class="form-container">
 			<h1>Chore Name</h1>
 
 			<label for="name"><b>name</b></label>
