@@ -65,8 +65,8 @@
 			<label for="Frequency"><b>Frequency</b></label>
 			<input type="text" placeholder="Enter Frequency" name="choreFreq" required>
 
-			<button type="submit" class="btn">Login</button>
-			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+			<button type="submit" class="btn">Create</button>
+			<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
 		</form>
 	</div>
 
