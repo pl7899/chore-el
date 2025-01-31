@@ -1,6 +1,5 @@
-<?php
-?>
-<script type="text/javascript" src="chore-el_shim.js"></script>
+
+<script src="chore-el_shim.js"></script>
 <?php
 
 // should be able to take action for commiting to the DB then use the below line to jump back to the main page
