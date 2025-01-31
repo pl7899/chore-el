@@ -11,18 +11,12 @@ function retrieveChoreList() {
         });
 }
 
-function createNewChore() {
-    var project = document.getElementById("genericInput").value;
-    if (project.length > 0)
+function createNewChore(choreName, choreFreq) {
+    var name = choreName;
+	var freq = choreFreq;
+    if (choreName.length > 0)
     {
-		document.getElementById('genericInput').value = '';
-	    $.post("webdo_interface.php", { project: project, action: "addProject" },
-	        function(data) {
-		        // if the post is successful update the displayed project tasks
-				handleProjectSelection(project);
-				retrieveProjectList();
-				disableGenericInput();
-   			});
+	    $.post("chore-el_interface.php", { name: choreName, freq: choreFreq, action: "addChore" });
    	}
 }
 

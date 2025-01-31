@@ -19,16 +19,16 @@ if ($_POST['action'] == "retrieveChoreList")
 	} 
 	echo "</table> ";
 }
-else if ($_POST['action'] == "addTask")
+else if ($_POST['action'] == "addChore")
 {
-	$task = $_POST['task'];
-	$task = mysqli_real_escape_string($db, $task);
+	$chore = $_POST['choreName'];
+	$freq = $_POST['choreFreq'];
+	$chore = mysqli_real_escape_string($db, $chore);
+	$freq = mysqli_real_escape_string($db, $freq);
 
-	$priority = $_POST['priority'];
-	$project = $_POST['project'];
-	if ($task != NULL) {
-		$sql = "INSERT INTO todoActions (taskDescription, priority, project, isOpen)
-            VALUES ('$task', '$priority', '$project', 1)";
+	if ($chore != NULL) {
+		$sql = "INSERT INTO todoChores (name, frequencyDays)
+            VALUES ('$chore', '$freq')";
 		mysqli_query($db, $sql);
 	}
 }
