@@ -10,11 +10,3 @@ function retrieveChoreList() {
         });
 }
 
-function createNewChore(choreName, choreFreq) {
-    var name = choreName;
-	var freq = choreFreq;
-    if (choreName.length > 0)
-    {
-	    $.post("chore-el_interface.php", { name: choreName, freq: choreFreq, action: "addChore" });
-   	}
-}
