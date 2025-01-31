@@ -1,16 +1,6 @@
 
 <script>
-	createNewChore($choreName, $choreFreq);
-</script>
-<?php
 
-// should be able to take action for commiting to the DB then use the below line to jump back to the main page
-
-header("Location: https://www.northridge-studios.com/chore-el/chore-el.php", true, 301);  
-exit();  
-?>
-
-<script>
 function createNewChore(choreName, choreFreq) {
     var name = choreName;
 	var freq = choreFreq;
@@ -19,4 +9,14 @@ function createNewChore(choreName, choreFreq) {
 	    $.post("chore-el_interface.php", { name: choreName, freq: choreFreq, action: "addChore" });
    	}
 }
+
+	createNewChore($choreName, $choreFreq);
+
 </script>
+<?php
+
+// should be able to take action for commiting to the DB then use the below line to jump back to the main page
+
+header("Location: https://www.northridge-studios.com/chore-el/chore-el.php", true, 301);  
+exit();  
+?>
