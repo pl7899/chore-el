@@ -5,7 +5,6 @@ createNewChore($_POST['choreName'], $_POST['choreFreq']);
 
 header("Location: https://www.northridge-studios.com/chore-el/chore-el.php", true, 301);  
 exit();  
-?>
 
 <script>
 
@@ -19,3 +18,6 @@ function createNewChore(choreName, choreFreq) {
 }
 
 </script>
+
+?>
+
