@@ -31,7 +31,6 @@
 			
 			</pre>
 -->
-		Row head location
 		</div>
 		<div class="rowLongTerm center" id="choreListDump">
 
@@ -53,22 +52,13 @@
 		<div id="auto_load_time" class="dateText">
 			<p>location 1</p>
       	</div>
+		<hr>
+		<div id="addChoreLocation">
+		<p>ChoreName <input style="width: 320px;" name="chore" id="genericInput" type="text" value="enter chorename"> </p>
+
+		</div>
+
 	</div>
-	</div>
-
-	<div class="form-popup" id="myForm">
-		<form action="add_chore.php" class="form-container">
-			<h1>Chore Name</h1>
-
-			<label for="name"><b>name</b></label>
-			<input type="text" placeholder="Enter Chore" name="choreName" required>
-
-			<label for="Frequency"><b>Frequency</b></label>
-			<input type="text" placeholder="Enter Frequency" name="choreFreq" required>
-
-			<button type="submit" class="btn">Create</button>
-			<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-		</form>
 	</div>
 
 <script>
@@ -86,14 +76,6 @@
             timeString = timeString + "<span class=timeFormat> " + d.getHours() + ":" + minutesString + "</span> <br>";
             document.getElementById("auto_load_time").innerHTML = timeString;
         }
-
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
 
 </script>
 
