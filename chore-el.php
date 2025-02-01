@@ -35,6 +35,11 @@
 		<div class="rowLongTerm center" id="choreListDump">
 
 		</div>
+		<hr>
+		<div id="addChoreLocation">
+		<p>New Chore <input style="width: 320px;" name="chore" id="genericInput" type="text" value="enter chorename"> </p>
+
+		</div>
 		</br>
 	</div>
 	<div class="rightColumn">
@@ -52,11 +57,7 @@
 		<div id="auto_load_time" class="dateText">
 			<p>location 1</p>
       	</div>
-		<hr>
-		<div id="addChoreLocation">
-		<p>ChoreName <input style="width: 320px;" name="chore" id="genericInput" type="text" value="enter chorename"> </p>
 
-		</div>
 
 	</div>
 	</div>
