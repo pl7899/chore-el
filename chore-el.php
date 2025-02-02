@@ -36,16 +36,23 @@
 
 		</div>
 		<hr>
+		<div id="coreSearchArea">
+			<p>Search For Chores</p>
+			<input style="width: 80px;" name="searchString" id="searchString" type="text" value="SearchString"> 
+			<button class="button">Find A Chore</button>
+		</div>
+		<hr>
 		<div id="addChoreLocation">
-		<p>New Chore</p>
-		<p>
-			<input style="width: 20px;" name="choreNamme" id="addChoreName" type="text" value="chorename"> 
-			<input style="width: 20px;" name="choreFreq" id="addChoreFrequency" type="text" value="chorefreq">
-			<input style="width: 20px;" name="choreUnknown" id="addChoreUnknown" type="text" value="unknown"> 
-	    </p>
-		<p><input style="width: 320px;" name="choreNotes" id="addChoreNotes" type="text" value="chorenotes"> </p>
-		
-
+			<p>Create a New Chore</p>
+			<p>
+				<input style="width: 80px;" name="choreName" id="addChoreName" type="text" value="chorename"> 
+				<input style="width: 60px;" name="choreFreq" id="addChoreFrequency" type="text" value="chorefreq">
+				<input style="width: 60px;" name="choreUnknown" id="addChoreUnknown" type="text" value="unknown"> 
+				<button class="button">Add Chore</button>
+			</p>
+			<p>
+				<input style="width: 400px;" name="choreNotes" id="addChoreNotes" type="text" value="chorenotes">
+			</p>
 		</div>
 		</br>
 	</div>
@@ -53,8 +60,6 @@
 		<img src="assets/logo.png" alt="logo" width="384" height="256" >
 		<hr>
 		<div class="rowInfoControls">
-			<button class="open-button" onclick="openForm()">Add Chore</button>
-			<button class="button">Find A Chore</button>
 			<button class="button">Show This Month</button>
 			<button class="button">Randomizer!</button>
 			<button class="button">Admin</button>
