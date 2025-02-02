@@ -37,7 +37,14 @@
 		</div>
 		<hr>
 		<div id="addChoreLocation">
-		<p>New Chore <input style="width: 320px;" name="chore" id="genericInput" type="text" value="enter chorename"> </p>
+		<p>New Chore</p>
+		<p>
+			<input style="width: 20px;" name="choreNamme" id="addChoreName" type="text" value="chorename"> 
+			<input style="width: 20px;" name="choreFreq" id="addChoreFrequency" type="text" value="chorefreq">
+			<input style="width: 20px;" name="choreUnknown" id="addChoreUnknown" type="text" value="unknown"> 
+	    </p>
+		<p><input style="width: 320px;" name="choreNotes" id="addChoreNotes" type="text" value="chorenotes"> </p>
+		
 
 		</div>
 		</br>
