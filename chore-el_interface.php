@@ -22,13 +22,14 @@ if ($_POST['action'] == "retrieveChoreList")
 else if ($_POST['action'] == "addChore")
 {
 	$chore = $_POST['choreName'];
-	$freq = $_POST['choreFreq'];
+	$freq = $_POST['choreFrequency'];
+	$notes = $_POST['newChoreNotes'];
 	$chore = mysqli_real_escape_string($db, $chore);
 	$freq = mysqli_real_escape_string($db, $freq);
 
 	if ($chore != NULL) {
-		$sql = "INSERT INTO todoChores (name, frequencyDays)
-            VALUES ('$chore', '$freq')";
+		$sql = "INSERT INTO todoChores (name, frequencyDays, notes)
+            VALUES ('$chore', '$freq', '$notes')";
 		mysqli_query($db, $sql);
 	}
 }

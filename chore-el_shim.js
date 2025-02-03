@@ -1,7 +1,3 @@
-//$Rev: 747 $
-
-var lastAcceptedTheme = 0;
-var currentShownTheme = 0;
 
 function retrieveChoreList() {
     $.post("chore-el_interface.php", { action: "retrieveChoreList" },
@@ -10,3 +6,12 @@ function retrieveChoreList() {
         });
 }
 
+function addChore() {
+	newChoreName = document.getElementById('addChoreName').value;
+	newChoreFrequency = document.getElementById('addChoreFrequency').innerHTML;
+	newChoreNotes = document.getElementById('addChoreNotes').innerHTML;	
+    $.post("chore-el_interface.php", { action: "addChore", choreName:  newChoreName, c: newChoreFrequency, choreNotes: newChoreNotes},
+        function(data) {
+			retrieveChoreList();
+        });
+}
