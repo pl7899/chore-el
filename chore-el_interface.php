@@ -28,7 +28,7 @@ else if ($_POST['action'] == "addChore")
 	$freq = mysqli_real_escape_string($db, $freq);
 
 	if ($chore != NULL) {
-		$sql = "INSERT INTO todoChores (name, frequencyDays, notes)
+		$sql = "INSERT INTO todoChores (description, frequencyDays, notes)
             VALUES ('$chore', '$freq', '$notes')";
 		mysqli_query($db, $sql);
 	}
