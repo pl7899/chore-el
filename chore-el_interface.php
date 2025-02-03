@@ -24,7 +24,7 @@ else if ($_POST['action'] == "addChore")
 	$chore = $_POST['choreName'];
 	$freq = $_POST['choreFrequency'];
 	$notes = $_POST['choreNotes'];
-	$notes = $_POST['randomizer'];
+	$randomizer = $_POST['randomizer'];
 	$chore = mysqli_real_escape_string($db, $chore);
 	$freq = mysqli_real_escape_string($db, $freq);
 
