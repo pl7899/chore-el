@@ -178,10 +178,12 @@ table {
 	transform: rotate(45deg);
   }
 
-  .dateText{
+.dateText{
+	display: flex;
+	justify-content: space-between;
 	font-size: 24px;
 	color: #C49615;
-  }
+}
 
 input[type=text]:focus {
   border: 2px solid var(--input_focus_border);

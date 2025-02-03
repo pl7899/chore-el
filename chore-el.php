@@ -69,6 +69,7 @@
 		</div>
 		<hr>
 		<div id="auto_load_time" class="dateText">
+
 			<p>location 1</p>
       	</div>
 
@@ -87,8 +88,8 @@
             var d = new Date();
             var minutesString = d.getMinutes();
             minutesString = minutesString<10 ? "0" + minutesString : minutesString;
-            var timeString = "<span class=dateFormat>" + d.toDateString() + " </span>";
-            timeString = timeString + "<span class=timeFormat> " + d.getHours() + ":" + minutesString + "</span> <br>";
+            var timeString = "<div class=start>" + d.toDateString() + " </div>";
+            timeString = timeString + "<div class=end> " + d.getHours() + ":" + minutesString + "</div>";
             document.getElementById("auto_load_time").innerHTML = timeString;
         }
 
