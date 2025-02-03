@@ -23,7 +23,7 @@ else if ($_POST['action'] == "addChore")
 {
 	$chore = $_POST['choreName'];
 	$freq = $_POST['choreFrequency'];
-	$notes = $_POST['newChoreNotes'];
+	$notes = $_POST['choreNotes'];
 	$chore = mysqli_real_escape_string($db, $chore);
 	$freq = mysqli_real_escape_string($db, $freq);
 
