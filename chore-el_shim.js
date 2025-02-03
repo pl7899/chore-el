@@ -8,8 +8,8 @@ function retrieveChoreList() {
 
 function addChore() {
 	newChoreName = document.getElementById('addChoreName').value;
-	newChoreFrequency = document.getElementById('addChoreFrequency').innerHTML;
-	newChoreNotes = document.getElementById('addChoreNotes').innerHTML;	
+	newChoreFrequency = document.getElementById('addChoreFrequency').value;
+	newChoreNotes = document.getElementById('addChoreNotes').value;	
     $.post("chore-el_interface.php", { action: "addChore", choreName:  newChoreName, c: newChoreFrequency, choreNotes: newChoreNotes},
         function(data) {
 			retrieveChoreList();
