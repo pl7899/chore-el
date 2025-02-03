@@ -57,7 +57,9 @@
 		</br>
 	</div>
 	<div class="rightColumn">
-		<img src="assets/logo.png" alt="logo" width="384" height="256" >
+		<div class="logoDisplay">
+			<img src="assets/logo.png" alt="logo" width="384" height="256" >
+		</div>
 		<hr>
 		<div class="rowInfoControls">
 			<button class="button">Show This Month</button>
