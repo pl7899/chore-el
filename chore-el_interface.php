@@ -10,11 +10,11 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 if ($_POST['action'] == "retrieveChoreList")
 {
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Controls</th> </tr> ";
+	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 		while ($row = mysqli_fetch_array($rows)) {
 		{
 			//echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> </tr> " .  $row['id'] . "</td> </tr> ";
 		}
 	} 
 	echo "</table> ";
@@ -24,12 +24,13 @@ else if ($_POST['action'] == "addChore")
 	$chore = $_POST['choreName'];
 	$freq = $_POST['choreFrequency'];
 	$notes = $_POST['choreNotes'];
+	$notes = $_POST['randomizer'];
 	$chore = mysqli_real_escape_string($db, $chore);
 	$freq = mysqli_real_escape_string($db, $freq);
 
 	if ($chore != NULL) {
-		$sql = "INSERT INTO todoChores (description, frequencyDays, notes)
-            VALUES ('$chore', '$freq', '$notes')";
+		$sql = "INSERT INTO todoChores (description, frequencyDays, notes, randomizer)
+            VALUES ('$chore', '$freq', '$notes', '$randomizer')";
 		mysqli_query($db, $sql);
 	}
 }
