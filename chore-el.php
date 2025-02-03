@@ -47,7 +47,7 @@
 			<p>
 				<input style="width: 80px;" name="choreName" id="addChoreName" type="text" value="chorename"> 
 				<input style="width: 60px;" name="choreFreq" id="addChoreFrequency" type="text" value="chorefreq">
-				<input style="width: 60px;" name="choreUnknown" id="addChoreUnknown" type="text" value="unknown"> 
+				<label >One<input type="checkbox" checked="unchecked"></label>
 				<button class="button" onclick="addChore()">Add Chore</button>
 			</p>
 			<p>
