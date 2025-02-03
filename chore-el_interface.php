@@ -14,7 +14,7 @@ if ($_POST['action'] == "retrieveChoreList")
 		while ($row = mysqli_fetch_array($rows)) {
 		{
 			//echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> </tr> " .  $row['id'] . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
 	} 
 	echo "</table> ";
