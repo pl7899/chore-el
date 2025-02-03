@@ -28,6 +28,15 @@ else if ($_POST['action'] == "addChore")
 	$chore = mysqli_real_escape_string($db, $chore);
 	$freq = mysqli_real_escape_string($db, $freq);
 
+	if($randomizer=="true")
+	{
+		$randomizer = 1;
+	}
+	else
+	{
+		$randomizer = 0;
+	}
+	
 	if ($chore != NULL) {
 		$sql = "INSERT INTO todoChores (description, frequencyDays, notes, randomizer)
             VALUES ('$chore', '$freq', '$notes', '$randomizer')";
