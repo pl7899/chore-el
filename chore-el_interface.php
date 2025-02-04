@@ -10,7 +10,7 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 if ($_POST['action'] == "retrieveChoreList")
 {
 	$nextDay = date("Y-m-d", strtotime("last monday"));
-	echo "<div> Overdue Chores  ....... comparing to " . $nextDay . "</div><hr>";
+	echo "<div> Overdue Chores  ....... comparing to " . $nextDay . "</div></br>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	while ($row = mysqli_fetch_array($rows)) 
