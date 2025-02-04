@@ -25,23 +25,23 @@ if ($_POST['action'] == "retrieveChoreList")
 
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	echo "<div> Chores for this week </div><hr>";
-	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+//	echo "<div> Chores for this week </div><hr>";
+//	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		// if complete date + frequency > target date
-		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+//		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 	}
-	echo "</table> ";
+//	echo "</table> ";
 
-	echo "<div> Chores for next week </div><hr>";
+//	echo "<div> Chores for next week </div><hr>";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+//	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+//		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 	}
-	echo "</table> ";
+//	echo "</table> ";
 
 }
 else if ($_POST['action'] == "addChore")
