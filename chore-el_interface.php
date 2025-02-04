@@ -11,14 +11,14 @@ if ($_POST['action'] == "retrieveChoreList")
 {
 	$nextDay = date("Y-m-d", strtotime("last monday"));
 	echo "<div> Overdue Chores  ....... comparing to " . $nextDay . "</div>";
-	echo " <div><table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+	echo " <div><table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		// if completed date + frequency < curent date - the chore is overdue
-		if( $row['targetDate'] < $nextDay)
+		//if( $row['targetDate'] < $nextDay)
 		{
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
 	echo "</table> </div>";
