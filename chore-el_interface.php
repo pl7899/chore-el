@@ -25,11 +25,11 @@ if ($_POST['action'] == "retrieveChoreList")
 
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
+	echo "<div> Chores for this week </div><hr>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		// if complete date + frequency > target date
-		echo "<div> Chores for this week </div><hr>";
 		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 	}
 	echo "</table> ";
@@ -39,7 +39,6 @@ if ($_POST['action'] == "retrieveChoreList")
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "<div> Chores for this week </div><hr>";
 		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 	}
 	echo "</table> ";
