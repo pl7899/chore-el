@@ -9,45 +9,39 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 
 if ($_POST['action'] == "retrieveChoreList")
 {
-
-	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	$allRows = $rows->fetch_all(MYSQLI_ASSOC);
-	print_r($allRows);
-	echo "<div> Overdue Chores  ....... </div><hr>";
+	$nextDay = date("Y-m-d", strtotime("last monday"));
+	echo "<div> Overdue Chores  ....... comparing to " . $nextDay . "</div><hr>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
-//		while ($row = mysqli_fetch_array($rows)) 
-		foreach ($allRows as $row)
+	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
+	while ($row = mysqli_fetch_array($rows)) 
+	{
+		// if completed date + frequency < curent date - the chore is overdue
+		if( $row['targetDate'] < $nextDay)
 		{
-
-			echo "$row <br>";
-			// if completed date + frequency < curent date - the chore is overdue
-			echo "<div> Chores for this week </div><hr>";
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
-	} 
+	}
 	echo "</table> ";
 
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
-		while ($row = mysqli_fetch_array($rows)) {
-		{
-			// if complete date + frequency > target date
-			echo "<div> Chores for this week </div><hr>";
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
-		}
-	} 
+	while ($row = mysqli_fetch_array($rows)) 
+	{
+		// if complete date + frequency > target date
+		echo "<div> Chores for this week </div><hr>";
+		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+	}
 	echo "</table> ";
 
 	echo "<div> Chores for next week </div><hr>";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
-		while ($row = mysqli_fetch_array($rows)) {
-		{
-			echo "<div> Chores for this week </div><hr>";
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
-		}
-	} 
+	while ($row = mysqli_fetch_array($rows)) 
+	{
+		echo "<div> Chores for this week </div><hr>";
+		echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+	}
 	echo "</table> ";
 
 }
