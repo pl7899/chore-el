@@ -9,15 +9,47 @@ $findLateTasks = "SELECT *, DATE_FORMAT(`targetDate`, \"%b-%d\"), DATEDIFF(`targ
 
 if ($_POST['action'] == "retrieveChoreList")
 {
+
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
+	$allRows = $rows->fetch_all();
+
+	echo "<div> Overdue Chores  ....... </div><hr>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
-		while ($row = mysqli_fetch_array($rows)) {
+//		while ($row = mysqli_fetch_array($rows)) 
+		foreach ($allRows as $row)
 		{
-			//echo "<button onclick=\"handleProjectSelection(`" . $row['name'] . "`)\" class=\"button\">" . $row['name'] . "</button>";
+
+			echo "$x <br>";
+			// if completed date + frequency < curent date - the chore is overdue
+			echo "<div> Chores for this week </div><hr>";
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
 	} 
 	echo "</table> ";
+
+
+	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
+	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+		while ($row = mysqli_fetch_array($rows)) {
+		{
+			// if complete date + frequency > target date
+			echo "<div> Chores for this week </div><hr>";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+		}
+	} 
+	echo "</table> ";
+
+	echo "<div> Chores for next week </div><hr>";
+	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
+	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+		while ($row = mysqli_fetch_array($rows)) {
+		{
+			echo "<div> Chores for this week </div><hr>";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
+		}
+	} 
+	echo "</table> ";
+
 }
 else if ($_POST['action'] == "addChore")
 {
