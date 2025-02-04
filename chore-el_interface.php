@@ -31,7 +31,7 @@ if ($_POST['action'] == "retrieveChoreList")
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
-	echo "</table>";
+	echo "</table><hr>";
 
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
@@ -44,7 +44,7 @@ if ($_POST['action'] == "retrieveChoreList")
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
 		}
 	}
-	echo "</table> ";
+	echo "</table> <hr>";
 
 	//echo "<div> Chores for the future</div><hr>";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
