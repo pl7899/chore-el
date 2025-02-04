@@ -25,7 +25,7 @@ if ($_POST['action'] == "retrieveChoreList")
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		// if completed date + frequency < curent date - the chore is overdue
-		//if( $row['targetDate'] < $nextDay)
+		if( $row['targetDate'] < $nextDay)
 		{
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
