@@ -21,7 +21,7 @@ if ($_POST['action'] == "retrieveChoreList")
 
 
 	//echo "<div> Overdue Chores  ....... comparing to " . $mondayThisWeek . "</div>";
-	echo " <div><table> <tr> <th>Overdue Chores .... comparing to " . $mondayThisWeek . "</th></tr> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
+	echo " <div><table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
@@ -36,7 +36,7 @@ if ($_POST['action'] == "retrieveChoreList")
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	//echo "<div> Chores for this week </div><hr>";
-	echo "<table> <tr> <th>Chores for this week</th></tr> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+	echo "<table> <caption>Chores for this week</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		if( ($row['targetDate'] >= $mondayThisWeek) && ($row['targetDate'] < $mondayNextWeek) )
@@ -48,7 +48,7 @@ if ($_POST['action'] == "retrieveChoreList")
 
 	//echo "<div> Chores for the future</div><hr>";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
-	echo "<table>  <tr> <th>Chores for the future</th></tr> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
+	echo "<table>  <caption>Chores for the future</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		if($row['targetDate'] >= $mondayNextWeek)
