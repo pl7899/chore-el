@@ -12,7 +12,7 @@ if ($_POST['action'] == "retrieveChoreList")
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	$allRows = $rows->fetch_all();
-
+	print_r($allRows);
 	echo "<div> Overdue Chores  ....... </div><hr>";
 	echo "<table> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th> </tr> ";
 //		while ($row = mysqli_fetch_array($rows)) 
