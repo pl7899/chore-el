@@ -19,7 +19,7 @@ if ($_POST['action'] == "retrieveChoreList")
 		foreach ($allRows as $row)
 		{
 
-			echo "$x <br>";
+			echo "$row <br>";
 			// if completed date + frequency < curent date - the chore is overdue
 			echo "<div> Chores for this week </div><hr>";
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> </tr> ";
