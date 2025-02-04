@@ -21,7 +21,7 @@ if ($_POST['action'] == "retrieveChoreList")
 
 
 	//echo "<div> Overdue Chores  ....... comparing to " . $mondayThisWeek . "</div>";
-	echo " <div><table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
+	echo "<table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
@@ -31,7 +31,7 @@ if ($_POST['action'] == "retrieveChoreList")
 			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" .  $row['id'] . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
-	echo "</table> </div>";
+	echo "</table>";
 
 
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
