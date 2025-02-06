@@ -83,6 +83,25 @@ else if ($_POST['action'] == "addChore")
 		mysqli_query($db, $sql);
 	}
 }
+else if ($_POST['action'] == "completeChore")
+{
+	$choreID = $_POST['choreID'];
+	if ($choreID != NULL) {
+		$sql = "INSERT INTO todoChores (description, frequencyDays, notes, randomizer)
+            VALUES ('$chore', '$freq', '$notes', '$randomizer')";
+		//mysqli_query($db, $sql);
+	}
+}
+else if ($_POST['action'] == "modifyChore")
+{
+	$choreID = $_POST['choreID'];
+	if ($choreID != NULL) {
+		$sql = "INSERT INTO todoChores (description, frequencyDays, notes, randomizer)
+            VALUES ('$chore', '$freq', '$notes', '$randomizer')";
+		//mysqli_query($db, $sql);
+	}
+}
+
 elseif ($_POST['action'] == "exportTasksByWeekNumber")
 {
 	$weekValue = $_POST['weekValue'];

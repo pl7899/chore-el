@@ -69,11 +69,12 @@
 		</div>
 		<hr>
 		<div id="auto_load_time" class="dateText">
-
 			<p>location 1</p>
       	</div>
-
-
+		<hr>
+		<div id="choreUpdateMarker" class="dateText"></div>
+		<div id="choreCompleteMarker" class="dateText"></div>
+		<hr>
 	</div>
 	</div>
 

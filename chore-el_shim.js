@@ -23,3 +23,19 @@ function addChore() {
 			retrieveChoreList();
         });
 }
+
+function modifyChore(choreID) {
+    $.post("chore-el_interface.php", { action: "modifyChore", choreID: choreID },
+        function(data) {
+         	$('#choreUpdateMarker').html(choreID);
+			retrieveChoreList();
+			});
+}
+
+function completeChore(choreID) {
+    $.post("chore-el_interface.php", { action: "completeChore", choreID: choreID },
+        function(data) {
+         	$('#choreCompleteMarker').html(choreID);
+			retrieveChoreList();
+			});
+}
