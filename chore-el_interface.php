@@ -19,7 +19,6 @@ if ($_POST['action'] == "retrieveChoreList")
 	}
 	$mondayNextWeek = date("Y-m-d", timestamp: strtotime($nextDay . "+ 7 days"));
 
-
 	//echo "<div> Overdue Chores  ....... comparing to " . $mondayThisWeek . "</div>";
 	echo "<table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
@@ -28,7 +27,7 @@ if ($_POST['action'] == "retrieveChoreList")
 		// if completed date + frequency < curent date - the chore is overdue
 		if( $row['targetDate'] < $mondayThisWeek)
 		{
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . ")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequency'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
 	echo "</table><hr>";
@@ -86,10 +85,12 @@ else if ($_POST['action'] == "addChore")
 else if ($_POST['action'] == "completeChore")
 {
 	$choreID = $_POST['choreID'];
+	$frequency = $_POST['freq'];
+	
+	$newDate = date("Y-m-d") + $frequency;
 	if ($choreID != NULL) {
-		$sql = "INSERT INTO todoChores (description, frequencyDays, notes, randomizer)
-            VALUES ('$chore', '$freq', '$notes', '$randomizer')";
-		//mysqli_query($db, $sql);
+		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\" WHERE `id`=\"$choreID\"";
+		mysqli_query($db, $sql);
 	}
 }
 else if ($_POST['action'] == "modifyChore")

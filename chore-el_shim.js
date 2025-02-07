@@ -24,18 +24,18 @@ function addChore() {
         });
 }
 
+function completeChore(choreID, choreFreq) {
+    $.post("chore-el_interface.php", { action: "completeChore", choreID: choreID, freq: choreFreq},
+        function(data) {
+         	$('#choreCompleteMarker').html(choreID);
+			retrieveChoreList();
+		});
+}
+
 function modifyChore(choreID) {
     $.post("chore-el_interface.php", { action: "modifyChore", choreID: choreID },
         function(data) {
          	$('#choreUpdateMarker').html(choreID);
 			retrieveChoreList();
-			});
-}
-
-function completeChore(choreID) {
-    $.post("chore-el_interface.php", { action: "completeChore", choreID: choreID },
-        function(data) {
-         	$('#choreCompleteMarker').html(choreID);
-			retrieveChoreList();
-			});
+		});
 }
