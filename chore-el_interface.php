@@ -89,11 +89,10 @@ else if ($_POST['action'] == "completeChore")
 	$todaysDate = date("Y-m-d");
 	$newDate = date("Y-m-d", timestamp: strtotime($todaysDate . "+ " . $frequency . " days"));
 
-	$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\" WHERE `id`=\"$choreID\"";
 
 	echo "completeChore( ". $sql ." )";	
 	if ($choreID != NULL) {
-		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\ WHERE `id`=\"$choreID\"";
+		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\" WHERE `id`=\"$choreID\"";
 		mysqli_query($db, $sql);
 	}
 }
