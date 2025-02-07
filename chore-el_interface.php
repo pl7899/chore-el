@@ -17,7 +17,7 @@ if ($_POST['action'] == "retrieveChoreList")
 	{
 		$mondayThisWeek = date("Y-m-d", strtotime("last monday"));
 	}
-	$mondayNextWeek = date("Y-m-d", timestamp: strtotime($nextDay . "+ 7 days"));
+	$mondayNextWeek = date("Y-m-d", timestamp: strtotime($mondayThisWeek . "+ 7 days"));
 
 	//echo "<div> Overdue Chores  ....... comparing to " . $mondayThisWeek . "</div>";
 	echo "<table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
@@ -86,10 +86,11 @@ else if ($_POST['action'] == "completeChore")
 {
 	$choreID = $_POST['choreID'];
 	$frequency = $_POST['freq'];
-	
-	$newDate = date("Y-m-d") + $frequency;
+	$todaysDate = date("Y-m-d");
+	$newDate = strtotime(date("Y-m-d") . "+ " . $frequency . " days");
+
 	if ($choreID != NULL) {
-		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\" WHERE `id`=\"$choreID\"";
+		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\ WHERE `id`=\"$choreID\"";
 		mysqli_query($db, $sql);
 	}
 }
