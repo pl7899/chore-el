@@ -88,10 +88,12 @@ else if ($_POST['action'] == "completeChore")
 	$frequency = $_POST['freq'];
 	$todaysDate = date("Y-m-d");
 	$newDate = strtotime(date("Y-m-d") . "+ " . $frequency . " days");
+	$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\ WHERE `id`=\"$choreID\"";
 
+	echo "completeChore( ". $sql ." )";	
 	if ($choreID != NULL) {
 		$sql = "UPDATE `todoChores` SET `targetDate`=\"$newDate\", `completeDate`=\"$todaysDate\ WHERE `id`=\"$choreID\"";
-		mysqli_query($db, $sql);
+		//mysqli_query($db, $sql);
 	}
 }
 else if ($_POST['action'] == "modifyChore")

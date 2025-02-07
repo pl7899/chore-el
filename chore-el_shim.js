@@ -25,9 +25,10 @@ function addChore() {
 }
 
 function completeChore(choreID, choreFreq) {
-    $.post("chore-el_interface.php", { action: "completeChore", choreID: choreID, freq: choreFreq},
+	$('#choreCompleteMarker').html(choreID);
+	$.post("chore-el_interface.php", { action: "completeChore", choreID: choreID, freq: choreFreq},
         function(data) {
-         	$('#choreCompleteMarker').html(choreID);
+         	$('#choreCompleteMarker').html(data);
 			retrieveChoreList();
 		});
 }
