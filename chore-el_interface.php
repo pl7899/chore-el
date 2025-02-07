@@ -20,14 +20,14 @@ if ($_POST['action'] == "retrieveChoreList")
 	$mondayNextWeek = date("Y-m-d", timestamp: strtotime($mondayThisWeek . "+ 7 days"));
 
 	//echo "<div> Overdue Chores  ....... comparing to " . $mondayThisWeek . "</div>";
-	echo "<table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Last Done</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
+	echo "<table>  <caption>Overdue Chores .... comparing to " . $mondayThisWeek . "</caption> <tr> <th>Chore</th> <th>Frequency</th> <th>Completed On</th> <th>Target Date</th> <th>Randomize</th> <th>Controls</th>  <th>nextDay</th></tr> ";
 	$rows = mysqli_query($db, "SELECT * FROM `todoChores` ");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		// if completed date + frequency < curent date - the chore is overdue
 		if( $row['targetDate'] < $mondayThisWeek)
 		{
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['targetDate'] . "</td> <td>" .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
 	echo "</table><hr>";
@@ -40,7 +40,7 @@ if ($_POST['action'] == "retrieveChoreList")
 	{
 		if( ($row['targetDate'] >= $mondayThisWeek) && ($row['targetDate'] < $mondayNextWeek) )
 		{
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['targetDate'] . "</td> <td>" .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
 	echo "</table> <hr>";
@@ -52,7 +52,7 @@ if ($_POST['action'] == "retrieveChoreList")
 	{
 		if($row['targetDate'] >= $mondayNextWeek)
 		{
-			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
+			echo "<tr> <td>" .  $row['description'] . "</td> <td>" .  $row['frequencyDays'] . "</td> <td>" .  $row['completeDate'] . "</td> <td>"  .  $row['targetDate'] . "</td> <td>" .  $row['randomizer'] . "</td> <td>" . "<button class=\"button\" onclick=\"completeChore(" . $row['id'] . "," . $row['frequencyDays'] .")\">Complete Chore</button>" . "<button class=\"button\" onclick=\"modifyChore(" . $row['id'] . ")\">Modify Chore</button>" . "</td> <td>" . $nextDay . "</td> </tr> ";
 		}
 	}
 	echo "</table> ";
